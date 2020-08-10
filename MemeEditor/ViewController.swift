@@ -19,7 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickerController.delegate = self
     pickerController.sourceType = .photoLibrary
         present(pickerController, animated: true,completion: nil)
-        //dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var imagePickerView: UIImageView!
