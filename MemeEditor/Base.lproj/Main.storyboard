@@ -18,29 +18,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jSQ-8s-Vjc">
+                                <rect key="frame" x="0.0" y="30" width="375" height="607"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCP-6m-cxB">
+                                <rect key="frame" x="128" y="36" width="97" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOj-K9-kuk">
+                                <rect key="frame" x="139" y="570" width="97" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="textColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JvL-y0-e62">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Pick One" id="vyW-wx-f7u">
+                                    <barButtonItem title="Library" width="153.5" id="vyW-wx-f7u">
                                         <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="KLp-8G-Cjj"/>
+                                            <action selector="pickImageViaLibrary:" destination="BYZ-38-t0r" id="1Ng-Au-ZN9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Camera" width="211" id="lYj-BN-XWK">
+                                        <connections>
+                                            <action selector="pickImageViaCamera:" destination="BYZ-38-t0r" id="yXE-FI-67Y"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jSQ-8s-Vjc">
-                                <rect key="frame" x="61" y="202" width="253" height="253"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jSQ-8s-Vjc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="61" id="8Yw-UU-SGL"/>
-                            <constraint firstItem="JvL-y0-e62" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BTb-NK-tUy"/>
+                            <constraint firstItem="JvL-y0-e62" firstAttribute="trailing" secondItem="jSQ-8s-Vjc" secondAttribute="trailing" id="3Kl-0A-FaV"/>
+                            <constraint firstItem="FCP-6m-cxB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="3pA-N0-bvv"/>
+                            <constraint firstItem="jSQ-8s-Vjc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8Yw-UU-SGL"/>
                             <constraint firstItem="jSQ-8s-Vjc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LwH-FG-gJF"/>
-                            <constraint firstItem="jSQ-8s-Vjc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="182" id="Spf-W2-NdX"/>
-                            <constraint firstItem="JvL-y0-e62" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UR4-Iv-dIs"/>
-                            <constraint firstItem="JvL-y0-e62" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="WUM-uL-qaD"/>
+                            <constraint firstItem="JvL-y0-e62" firstAttribute="leading" secondItem="jSQ-8s-Vjc" secondAttribute="leading" id="VK8-TN-cMY"/>
+                            <constraint firstItem="FCP-6m-cxB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="128" id="WgN-L4-ylP"/>
+                            <constraint firstItem="JvL-y0-e62" firstAttribute="top" secondItem="kOj-K9-kuk" secondAttribute="bottom" constant="23" id="m0e-UP-uvk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FCP-6m-cxB" secondAttribute="trailing" constant="150" id="o6p-ug-Nzp"/>
+                            <constraint firstItem="kOj-K9-kuk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="t0n-nI-rGA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jSQ-8s-Vjc" secondAttribute="bottom" constant="30" id="vj6-Lg-LvC"/>
                             <constraint firstItem="jSQ-8s-Vjc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xmI-kf-EMJ"/>
+                            <constraint firstItem="JvL-y0-e62" firstAttribute="centerX" secondItem="kOj-K9-kuk" secondAttribute="centerX" id="y74-tF-eBc"/>
+                            <constraint firstItem="JvL-y0-e62" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zL6-cA-Vq7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

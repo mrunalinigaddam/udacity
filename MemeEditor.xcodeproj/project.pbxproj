@@ -15,6 +15,7 @@
 		FED52D0824E1BE5B00C5606B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED52D0624E1BE5B00C5606B /* LaunchScreen.storyboard */; };
 		FED52D1324E1BE5C00C5606B /* MemeEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED52D1224E1BE5C00C5606B /* MemeEditorTests.swift */; };
 		FED52D1E24E1BE5C00C5606B /* MemeEditorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED52D1D24E1BE5C00C5606B /* MemeEditorUITests.swift */; };
+		FED52D2C24E3289F00C5606B /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED52D2B24E3289F00C5606B /* AlertService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FED52D1924E1BE5C00C5606B /* MemeEditorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeEditorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED52D1D24E1BE5C00C5606B /* MemeEditorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeEditorUITests.swift; sourceTree = "<group>"; };
 		FED52D1F24E1BE5C00C5606B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FED52D2B24E3289F00C5606B /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				FED52D0624E1BE5B00C5606B /* LaunchScreen.storyboard */,
 				FED52D0924E1BE5B00C5606B /* Info.plist */,
 				FED52D0124E1BE5A00C5606B /* MemeEditor.xcdatamodeld */,
+				FED52D2B24E3289F00C5606B /* AlertService.swift */,
 			);
 			path = MemeEditor;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				FED52CFD24E1BE5A00C5606B /* ViewController.swift in Sources */,
 				FED52D0324E1BE5A00C5606B /* MemeEditor.xcdatamodeld in Sources */,
+				FED52D2C24E3289F00C5606B /* AlertService.swift in Sources */,
 				FED52CFB24E1BE5A00C5606B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
