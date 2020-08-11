@@ -10,17 +10,30 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    @IBAction func pickAnImage(_ sender: Any) {
-    let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-    pickerController.sourceType = .photoLibrary
-        present(pickerController, animated: true,completion: nil)
-        dismiss(animated: true, completion: nil)
+   @IBOutlet weak var imagePickerView: UIImageView!
+    
+    @IBAction func pickAnImage(_ sender: Any)
+    {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        
+        present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBOutlet weak var imagePickerView: UIImageView!
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            imagePickerView.image = image
+           
+        }else if let editedImage = info[.editedImage] as? UIImage {
+            imagePickerView.image = editedImage
+        }
+         dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        dismiss(animated: true, completion: nil)
+    }
 }
