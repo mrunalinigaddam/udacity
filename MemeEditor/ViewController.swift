@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityController.completionWithItemsHandler = {(activity, sucess, item, error)in self.save()}
     }
     @IBAction func cancelToShareMeme(_ sender: Any) {
-        initialState()
+        leaveMemeInBetween()
     }
     //COMMON METHOD TO SHARE VIA BOTH
     func chooseImageFromCameraOrPhoto(source: UIImagePickerController.SourceType) {
