@@ -19,19 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jSQ-8s-Vjc">
-                                <rect key="frame" x="0.0" y="30" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="37" width="375" height="593"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCP-6m-cxB">
-                                <rect key="frame" x="128" y="36" width="97" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOj-K9-kuk">
+                                <rect key="frame" x="0.0" y="583" width="375" height="30"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOj-K9-kuk">
-                                <rect key="frame" x="139" y="570" width="97" height="30"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="textColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="STN-Jz-Ehy"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -50,26 +45,48 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCP-6m-cxB">
+                                <rect key="frame" x="0.0" y="46" width="375" height="29"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="eh4-nL-b7D"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cYp-eV-zB8">
+                                <rect key="frame" x="0.0" y="7" width="332" height="30"/>
+                                <items>
+                                    <barButtonItem title="Cancel" width="154" id="K8O-Jf-O1t"/>
+                                    <barButtonItem title="Share" width="381" id="Bde-7K-ArE"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JvL-y0-e62" firstAttribute="trailing" secondItem="jSQ-8s-Vjc" secondAttribute="trailing" id="3Kl-0A-FaV"/>
-                            <constraint firstItem="FCP-6m-cxB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="3pA-N0-bvv"/>
-                            <constraint firstItem="jSQ-8s-Vjc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8Yw-UU-SGL"/>
-                            <constraint firstItem="jSQ-8s-Vjc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LwH-FG-gJF"/>
-                            <constraint firstItem="JvL-y0-e62" firstAttribute="leading" secondItem="jSQ-8s-Vjc" secondAttribute="leading" id="VK8-TN-cMY"/>
-                            <constraint firstItem="FCP-6m-cxB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="128" id="WgN-L4-ylP"/>
-                            <constraint firstItem="JvL-y0-e62" firstAttribute="top" secondItem="kOj-K9-kuk" secondAttribute="bottom" constant="23" id="m0e-UP-uvk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FCP-6m-cxB" secondAttribute="trailing" constant="150" id="o6p-ug-Nzp"/>
-                            <constraint firstItem="kOj-K9-kuk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="t0n-nI-rGA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jSQ-8s-Vjc" secondAttribute="bottom" constant="30" id="vj6-Lg-LvC"/>
-                            <constraint firstItem="jSQ-8s-Vjc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xmI-kf-EMJ"/>
-                            <constraint firstItem="JvL-y0-e62" firstAttribute="centerX" secondItem="kOj-K9-kuk" secondAttribute="centerX" id="y74-tF-eBc"/>
+                            <constraint firstItem="FCP-6m-cxB" firstAttribute="top" secondItem="cYp-eV-zB8" secondAttribute="bottom" constant="16" id="2fc-uf-Ocr"/>
+                            <constraint firstItem="jSQ-8s-Vjc" firstAttribute="leading" secondItem="JvL-y0-e62" secondAttribute="leading" id="8h3-Mm-eXM"/>
+                            <constraint firstItem="kOj-K9-kuk" firstAttribute="trailing" secondItem="FCP-6m-cxB" secondAttribute="trailing" id="CqS-Bh-fp6"/>
+                            <constraint firstItem="jSQ-8s-Vjc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FM1-aF-v8m"/>
+                            <constraint firstAttribute="trailing" secondItem="FCP-6m-cxB" secondAttribute="trailing" id="FN1-zX-Yye"/>
+                            <constraint firstItem="kOj-K9-kuk" firstAttribute="leading" secondItem="JvL-y0-e62" secondAttribute="leading" id="FtN-ba-7Tk"/>
+                            <constraint firstItem="kOj-K9-kuk" firstAttribute="trailing" secondItem="jSQ-8s-Vjc" secondAttribute="trailing" id="OXb-PC-8vw"/>
+                            <constraint firstItem="FCP-6m-cxB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xhr-QL-WQm"/>
+                            <constraint firstItem="kOj-K9-kuk" firstAttribute="leading" secondItem="FCP-6m-cxB" secondAttribute="leading" id="ckl-SW-Yfe"/>
+                            <constraint firstItem="kOj-K9-kuk" firstAttribute="trailing" secondItem="JvL-y0-e62" secondAttribute="trailing" id="fXW-th-5Mq"/>
+                            <constraint firstItem="cYp-eV-zB8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gMR-ge-me2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cYp-eV-zB8" secondAttribute="trailing" constant="-74" id="oBC-s7-Jnv"/>
+                            <constraint firstItem="jSQ-8s-Vjc" firstAttribute="top" secondItem="cYp-eV-zB8" secondAttribute="bottom" constant="7" id="pEu-sJ-CvL"/>
+                            <constraint firstItem="JvL-y0-e62" firstAttribute="top" secondItem="kOj-K9-kuk" secondAttribute="bottom" constant="10" id="qjZ-Wb-sjj"/>
+                            <constraint firstItem="cYp-eV-zB8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="130" id="vMG-8f-wWP"/>
+                            <constraint firstItem="FCP-6m-cxB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="46" id="vhM-sY-1fe"/>
                             <constraint firstItem="JvL-y0-e62" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zL6-cA-Vq7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="lYj-BN-XWK" id="ck6-oi-38B"/>
                         <outlet property="imagePickerView" destination="jSQ-8s-Vjc" id="teH-D3-rTW"/>
                     </connections>
                 </viewController>

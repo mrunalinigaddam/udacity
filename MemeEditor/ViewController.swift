@@ -15,8 +15,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
          cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     
-   @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var imagePickerView: UIImageView!
 
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     @IBAction func pickImageViaCamera(_ sender: Any) {
         let imagePicker = UIImagePickerController()
@@ -28,15 +29,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func pickImageViaLibrary(_ sender: Any) {
-    
-    let imagePicker = UIImagePickerController()
-    imagePicker.delegate = self
-    imagePicker.sourceType = .photoLibrary
-    imagePicker.allowsEditing = true
-    
-    present(imagePicker, animated: true, completion: nil)
+    chooseImageFromCameraOrPhoto(source: UIImagePickerController.pho)
+//    let imagePicker = UIImagePickerController()
+//    imagePicker.delegate = self
+//    imagePicker.sourceType = .photoLibrary
+//    imagePicker.allowsEditing = true
+//
+//    present(imagePicker, animated: true, completion: nil)
     }
     
+    
+    func chooseImageFromCameraOrPhoto(source: UIImagePickerController.SourceType) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
+        pickerController.sourceType = source
+        present(pickerController, animated: true, completion: nil)
+    }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             imagePickerView.image = image
