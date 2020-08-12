@@ -15,28 +15,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
          cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var imagePickerView: UIImageView!
-
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    
-    @IBAction func pickImageViaCamera(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = true
-        
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    @IBAction func pickImageViaLibrary(_ sender: Any) {
-    chooseImageFromCameraOrPhoto(source: UIImagePickerController.pho)
-//    let imagePicker = UIImagePickerController()
-//    imagePicker.delegate = self
-//    imagePicker.sourceType = .photoLibrary
-//    imagePicker.allowsEditing = true
+    @IBOutlet weak var toolBar: UIToolbar!
+//    @IBAction func pickImageViaCamera(_ sender: Any) {
+//        let imagePicker = UIImagePickerController()
+//        imagePicker.delegate = self
+//        imagePicker.sourceType = .camera
+//        imagePicker.allowsEditing = true
 //
-//    present(imagePicker, animated: true, completion: nil)
-    }
+//        present(imagePicker, animated: true, completion: nil)
+//    }
+    
+//    @IBAction func pickImageViaLibrary(_ sender: Any) {
+//    chooseImageFromCameraOrPhoto(source: UIImagePickerController.pho)
+////    let imagePicker = UIImagePickerController()
+////    imagePicker.delegate = self
+////    imagePicker.sourceType = .photoLibrary
+////    imagePicker.allowsEditing = true
+////
+////    present(imagePicker, animated: true, completion: nil)
+//    }
     
     
     func chooseImageFromCameraOrPhoto(source: UIImagePickerController.SourceType) {
