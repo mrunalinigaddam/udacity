@@ -22,16 +22,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         unSubscribeToKeyBoardNotifications()
     }
     override func viewDidLoad() {
+        
+        self.topTextField.delegate = self
+        self.bottomTextField.delegate = self
+          //setting text properties form dictionary
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
         //text alignemnet to center
         self.topTextField.textAlignment = .center
         self.bottomTextField.textAlignment = .center
-        self.topTextField.delegate = self
-        self.bottomTextField.delegate = self
         self.topTextField.text = "TOP"
         self.bottomTextField.text = "BOTTOM"
-        //setting text properties form dictionary
-        self.topTextField.defaultTextAttributes = memeTextAttributes
-        self.bottomTextField.defaultTextAttributes = memeTextAttributes
+      
     }
     
     @IBOutlet weak var topTextField: UITextField!
