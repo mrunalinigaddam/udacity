@@ -56,8 +56,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(activityController,animated: true,completion: nil)
         activityController.completionWithItemsHandler = {(activity, sucess, item, error)in self.save()}
     }
+    //Cancel to share MEME
     @IBAction func cancelToShareMeme(_ sender: Any) {
         leaveMemeInBetween()
+    }
+    //To clear texts up on touch
+    @IBAction func topTextField(_ sender: Any) {
+        textFieldDidBeginEditing(_textField: topTextField)
+        if bottomTextField.text! == " "{
+            shareButton.isEnabled = true
+        }
+    }
+    
+    @IBAction func bottomTextField(_ sender: Any) {
+        textFieldDidBeginEditing(_textField: bottomTextField)
+        if topTextField.text! == " "{
+            shareButton.isEnabled = true
+        }
     }
     //COMMON METHOD TO SHARE VIA BOTH
     func chooseImageFromCameraOrPhoto(source: UIImagePickerController.SourceType) {
