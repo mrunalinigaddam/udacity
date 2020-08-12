@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{
 
     //TO DISABLE CAMERA BUTTON IF CAM IS NOT AVAILABLE ON THE DEVICE
     override func viewWillAppear(_ animated: Bool) {
@@ -25,11 +25,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //text alignemnet to center
         self.topTextField.textAlignment = .center
         self.bottomTextField.textAlignment = .center
-        //topTextField.text = "TOP"
-        //bottomTextField.text = "BOTTOM"
+        self.topTextField.delegate = self
+        self.bottomTextField.delegate = self
+        self.topTextField.text = "TOP"
+        self.bottomTextField.text = "BOTTOM"
         //setting text properties form dictionary
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
+        self.topTextField.defaultTextAttributes = memeTextAttributes
+        self.bottomTextField.defaultTextAttributes = memeTextAttributes
     }
     
     @IBOutlet weak var topTextField: UITextField!
@@ -62,14 +64,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     //To clear texts up on touch
     @IBAction func topTextField(_ sender: Any) {
-        textFieldDidBeginEditing(_textField: topTextField)
+        textFieldDidBeginEditing(topTextField)
         if bottomTextField.text! == " "{
             shareButton.isEnabled = true
         }
     }
     
     @IBAction func bottomTextField(_ sender: Any) {
-        textFieldDidBeginEditing(_textField: bottomTextField)
+        textFieldDidBeginEditing(bottomTextField)
         if topTextField.text! == " "{
             shareButton.isEnabled = true
         }
@@ -100,9 +102,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismiss(animated: true, completion: nil)
     }
     //To clear text in text fields when user starts editing
-    func textFieldDidBeginEditing(_textField: UITextField){
-        if (_textField == topTextField && _textField.text == "TOP") || (_textField == bottomTextField && _textField.text == "BOTTOM"){
-            _textField.text = " "
+    func textFieldDidBeginEditing(_ textField: UITextField){
+        if (textField == topTextField && textField.text == "TOP") || (textField == bottomTextField && textField.text == "BOTTOM"){
+            textField.text = " "
         }
     }
     //to dismiss key board when user clicks return
