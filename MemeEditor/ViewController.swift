@@ -67,16 +67,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //To clear texts up on touch
     @IBAction func topTextField(_ sender: Any) {
         textFieldDidBeginEditing(topTextField)
-        if bottomTextField.text! == " "{
-            shareButton.isEnabled = true
-        }
     }
     
     @IBAction func bottomTextField(_ sender: Any) {
         textFieldDidBeginEditing(bottomTextField)
-        if topTextField.text! == " "{
-            shareButton.isEnabled = true
-        }
     }
     //COMMON METHOD TO SHARE VIA BOTH
     func chooseImageFromCameraOrPhoto(source: UIImagePickerController.SourceType) {
@@ -88,20 +82,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     //CONTROLS ON IMAGE
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("Image selected")
         if let image = info[.originalImage] as? UIImage {
             imagePickerView.image = image
             
-        }else if let editedImage = info[.editedImage] as? UIImage {
-            imagePickerView.image = editedImage
         }
+//        else if let editedImage = info[.editedImage] as? UIImage {
+//            imagePickerView.image = editedImage
+//        }
            shareButton.isEnabled = true
-        picker.dismiss(animated: true, completion: nil)
+        print("share button action is active")
+        dismiss(animated: true, completion: nil)
     
     }
     //IF Image picking is cancelled
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
-        picker.dismiss(animated: true, completion: nil)
+       dismiss(animated: true, completion: nil)
     }
     //To clear text in text fields when user starts editing
     func textFieldDidBeginEditing(_ textField: UITextField){
@@ -110,8 +107,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     //to dismiss key board when user clicks return
-    func textFieldShouldReturn(_textField: UITextField) -> Bool{
-        return _textField.resignFirstResponder()
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+         textField.resignFirstResponder()
+        return true
     }
     //Text in text field specifications
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
@@ -176,7 +174,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     //to adapt user behaviour as discard in between
     func leaveMemeInBetween(){
-        shareButton.isEnabled = false
+        //shareButton.isEnabled = false
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         imagePickerView.image = nil
@@ -185,7 +183,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
    
     func initialState(){
-        shareButton.isEnabled = false
+        //shareButton.isEnabled = false
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         imagePickerView.image = nil
