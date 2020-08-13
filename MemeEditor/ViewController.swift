@@ -63,7 +63,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let activityController = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, completed, items, error in
             if completed {
-                _ = self.generateMemedImage()
                 self.save()
                 self.dismiss(animated: true, completion: nil)
             }
