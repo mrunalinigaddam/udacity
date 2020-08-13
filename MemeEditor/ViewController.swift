@@ -54,11 +54,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     //Share Via share button
     @IBAction func shareAnImage(_ sender: Any) {
-        let toShareImage = generateMemedImage()
+        //let toShareImage = generateMemedImage()
         
-        let activityController = UIActivityViewController(activityItems: [toShareImage], applicationActivities: nil)
-        self.present(activityController,animated: true,completion: nil)
-        activityController.completionWithItemsHandler = {(activity, sucess, item, error)in self.save()}
+//        let activityController = UIActivityViewController(activityItems: [toShareImage], applicationActivities: nil)
+//        self.present(activityController,animated: true,completion: nil)
+//        activityController.completionWithItemsHandler = {(activity, sucess, item, error)in self.save()}
+        
+        
+        let activityController = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
+        activityController.completionWithItemsHandler = { activity, completed, items, error in
+            if completed {
+                //self.generateMemedImage()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        present(activityController, animated: true, completion: nil)
     }
     //Cancel to share MEME
     @IBAction func cancelToShareMeme(_ sender: Any) {
@@ -156,20 +166,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage:UIImage
     }
     
-    //Created final MEME
+//    //Created final MEME
+//    func generateMemedImage() -> UIImage {
+//        //Hide tab and nav bars
+//        self.navigationController?.navigationBar.isHidden = true;
+//        self.tabBarController?.tabBar.isHidden = true;
+//        // Render view to an image
+//        UIGraphicsBeginImageContext(self.view.frame.size)
+//        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+//        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        UIGraphicsEndImageContext()
+//        //Show tab and nav bars
+//        self.navigationController?.navigationBar.isHidden = false;
+//        self.tabBarController?.tabBar.isHidden = false;
+//
+//        return memedImage
+//    }
+    
+    
     func generateMemedImage() -> UIImage {
-        //Hide tab and nav bars
-        self.navigationController?.navigationBar.isHidden = true;
-        self.tabBarController?.tabBar.isHidden = true;
-        // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        //Show tab and nav bars
-        self.navigationController?.navigationBar.isHidden = false;
-        self.tabBarController?.tabBar.isHidden = false;
-        
         return memedImage
     }
     //to adapt user behaviour as discard in between
