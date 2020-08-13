@@ -55,7 +55,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //Share Via share button
     @IBAction func shareAnImage(_ sender: Any) {
         //let toShareImage = generateMemedImage()
-        
 //        let activityController = UIActivityViewController(activityItems: [toShareImage], applicationActivities: nil)
 //        self.present(activityController,animated: true,completion: nil)
 //        activityController.completionWithItemsHandler = {(activity, sucess, item, error)in self.save()}
@@ -65,6 +64,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityController.completionWithItemsHandler = { activity, completed, items, error in
             if completed {
                 _ = self.generateMemedImage()
+                self.save()
                 self.dismiss(animated: true, completion: nil)
             }
         }
@@ -166,6 +166,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage:UIImage
     }
     
+    func generateMemedImage() -> UIImage {
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return memedImage
+        
 //    //Created final MEME
 //    func generateMemedImage() -> UIImage {
 //        //Hide tab and nav bars
@@ -182,14 +189,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //
 //        return memedImage
 //    }
-    
-    
-    func generateMemedImage() -> UIImage {
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return memedImage
     }
     //to adapt user behaviour as discard in between
     func leaveMemeInBetween(){
